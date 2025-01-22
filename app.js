@@ -5,18 +5,30 @@ let amigos = [];
 
 function registrarAmigo() {
     let ingresaAmigos = String(document.getElementById('amigo').value);
-        if (ingresaAmigos =='') {
+    if (ingresaAmigos =='') {
         alert('Por favor ingresa un nombre')
         } else {
         amigos.push(ingresaAmigos);
-        }
+    }
         document.getElementById('amigo').value ='';
+        
+        mostrarAmigos();
      return;   
  
+     
 }
+
+
 
 function mostrarAmigos(){
-    let listadoAmigos =String(document.getElementById('amigo').value);
-    listadoAmigos.innerHTML='';
-
+    
+    let listadoAmigos =document.getElementById("listaAmigos");
+    listadoAmigos.innerHTML = '';
+    
+    for (let i = 0; i < amigos.length; i++) {
+        listadoAmigos.innerHTML = amigos[i];
+           
+    }
+    return;
 }
+
