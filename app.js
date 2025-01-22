@@ -22,12 +22,14 @@ function registrarAmigo() {
 
 function mostrarAmigos(){
     
-    let listadoAmigos =document.getElementById("listaAmigos");
+    let listadoAmigos = document.getElementById("listaAmigos");
     listadoAmigos.innerHTML = '';
     
     for (let i = 0; i < amigos.length; i++) {
-        listadoAmigos.innerHTML = amigos[i];
-           
+        let li = document.createElement('li')
+        li.textContent = amigos[i]
+        listadoAmigos.appendChild(li);
+        
     }
     return;
 }
