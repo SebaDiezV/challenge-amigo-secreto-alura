@@ -10,7 +10,7 @@ function registrarAmigo() {
         } else {
         amigos.push(ingresaAmigos);
     }
-    document.getElementById('amigo').value ='';
+    limpiarCaja('amigo');
     mostrarAmigos();
     return;
  
@@ -46,6 +46,7 @@ function sortearAmigo() {
 
         if (amigos.length == listaSorteados.length){
             alert ('Ya se sortearon todos los amigos, ¡gracias por participar!')
+            reiniciarSorteo();
         } else { 
             
             while(listaSorteados.includes(sorteoAleatorio)){
@@ -59,6 +60,9 @@ function sortearAmigo() {
             listaSorteados.push(sorteoAleatorio);
             
         }
+        
+        let listadoAmigos = document.getElementById('listaAmigos');
+        listadoAmigos.innerHTML = '';
 
         
     } 
@@ -69,4 +73,22 @@ function sortearAmigo() {
 function numeroAleatorio() {
     let aleatorio = Math.floor(Math.random() * amigos.length);
     return aleatorio;
+}
+
+function limpiarCaja(elemento){
+    document.getElementById(elemento).value =''; 
+    return;
+}
+
+function reiniciarSorteo() {
+    amigos = [];            // Limpiar la lista de amigos
+    listaSorteados = [];    // Limpiar la lista de sorteados
+
+    // Limpiar la interfaz para que quede vacía
+    let listadoAmigos = document.getElementById('listaAmigos');
+    listadoAmigos.innerHTML = '';
+
+    let sorteoResultado = document.getElementById('resultado');
+    sorteoResultado.innerHTML = '';
+    return;
 }
