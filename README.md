@@ -13,7 +13,7 @@ El siguiente proyecto de **JavaScript** del desafío de Principiante en Programa
 - Sortear Amigo aleatoriamente :game_die:
 - Limpieza de lista y reincio del sorteo :arrows_counterclockwise:
 - No permite nombres duplicados :no_entry_sign: **NEW**
-- No permite simbolos y números :no_entry: **NEW**
+- No permite símbolos y números :no_entry: **NEW**
 
 ## Requisitos :clipboard:
 
