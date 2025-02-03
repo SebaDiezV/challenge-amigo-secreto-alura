@@ -5,16 +5,21 @@ let sorteoAleatorio =0;
 
 function registrarAmigo() {
     let ingresaAmigos = document.querySelector('input').value;
+    let regex = /^[a-zA-Z\s]+$/; //Esta expresion regular asegura que solo se permitan letras (mayúsculas y minúsculas) y espacios
     if (ingresaAmigos =='') {
-        alert('Por favor ingresa un nombre')
+        alert('Por favor ingresa un nombre');
+        } else if (amigos.includes(ingresaAmigos)){
+            alert('Ese nombre ya fue ingresado, por favor ingresa un nombre distinto');
+        } else if (!regex.test(ingresaAmigos)){ 
+            alert('Por favor, ingresa un nombre válido. No se permiten números ni símbolos');
+                
         } else {
         amigos.push(ingresaAmigos);
-    }
+        }
+    
     limpiarCaja('amigo');
     mostrarAmigos();
     return;
- 
- 
 }
 
 
