@@ -24,22 +24,19 @@ function registrarAmigo() {
 
 
 //Muestra los amigos agregados
-function mostrarAmigos(){
-    
+function mostrarAmigos(){   
     let listadoAmigos = document.getElementById('listaAmigos');
     listadoAmigos.innerHTML = '';
     
     for (let i = 0; i < amigos.length; i++) {
         let li = document.createElement('li');
         li.textContent = amigos[i];
-        listadoAmigos.appendChild(li);
-    
+        listadoAmigos.appendChild(li);  
     }
     return;
 }
 
 function sortearAmigo() {
-
     //Revisar que array amigos no está vacío
     if (amigos =='') {
         alert ('Debes ingresar personas para el sorteo de Amigo Secreto');
@@ -62,18 +59,14 @@ function sortearAmigo() {
                 sorteoAleatorio = amigos[numeroAleatorio()];
             }
             //Mostrar amigo sorteado
-            let sorteo = document.getElementById('resultado')
-            sorteo.innerHTML = (`El amigo secreto sorteado es: ${sorteoAleatorio}`);
+            asignarTextoElemento('resultado', `El amigo secreto sorteado es: ${sorteoAleatorio}`);
             
             listaSorteados.push(sorteoAleatorio);
             
         }
         
         //Limpiar listado de amigos
-        listadoAmigos = document.getElementById('listaAmigos');
-        listadoAmigos.innerHTML = '';
-
-        
+        asignarTextoElemento('listaAmigos', '');        
     } 
 
     return;
@@ -94,10 +87,14 @@ function reiniciarSorteo() {
     listaSorteados = [];    // Limpiar la lista de sorteados
 
     // Limpiar la interfaz para que quede vacía
-    let listadoAmigos = document.getElementById('listaAmigos');
-    listadoAmigos.innerHTML = '';
+    asignarTextoElemento('listaAmigos', '');
+    asignarTextoElemento('resultado', '');
+    return;
+}
 
-    let sorteoResultado = document.getElementById('resultado');
-    sorteoResultado.innerHTML = '';
+
+function asignarTextoElemento(elemento, texto) { 
+    let elementoHTML = document.getElementById(elemento);
+    elementoHTML.innerHTML = texto;
     return;
 }
