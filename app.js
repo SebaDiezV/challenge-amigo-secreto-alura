@@ -7,9 +7,9 @@ function registrarAmigo() {
     let ingresaAmigos = document.querySelector('input').value;
     let regex = /^[a-zA-Z\s]+$/; //Esta expresion regular asegura que solo se permitan letras (mayúsculas y minúsculas) y espacios
     if (ingresaAmigos =='') {
-        alert('Por favor ingresa un nombre');
+        alert('Por favor, ingresa un nombre para agregar al sorteo de Amigo Secreto');
         } else if (amigos.includes(ingresaAmigos)){
-            alert('Ese nombre ya fue ingresado, por favor ingresa un nombre distinto');
+            alert('Ese nombre ya fue ingresado al sorteo de Amigo Secreto, por favor ingresa un nombre distinto');
         } else if (!regex.test(ingresaAmigos)){ 
             alert('Por favor, ingresa un nombre válido. No se permiten números, símbolos, acentos y la letra "ñ"');
                 
@@ -39,20 +39,23 @@ function mostrarAmigos(){
 function sortearAmigo() {
     // Revisar que array amigos no está vacío
     if (amigos =='') {
-        alert ('Debes ingresar personas para el sorteo de Amigo Secreto');
+        alert ('Debes añadir amigos para el sorteo de Amigo Secreto');
 
     // Agregar minimo de 3 amigos ingresados para sorteo
     } else if (amigos.length < 3){
-        alert('Debes ingresar un mínimo de 3 amigos para el sorteo')
+        alert('Debes añadir un mínimo de 3 amigos para el sorteo de Amigo Secreto')
     } else {
         // Deshabilitar ingreso de amigos en el campo de texto y botón añadir cuando inicia el sorteo
         document.querySelector('input').setAttribute('disabled', 'true');
         document.getElementById('boton-amigo').setAttribute('disabled', 'true');
         
-        
+        // Limpiar listado de amigos agregados
+        asignarTextoElemento('listaAmigos', '');  
+
         // Comparar lista de amigos con lista de sorteados
         if (amigos.length == listaSorteados.length){
             alert ('Ya se sortearon todos los amigos, ¡gracias por participar!')
+            alert ('El juego de Amigo Secreto se reiniciará automáticamente')
             reiniciarSorteo();
         } else { 
             
