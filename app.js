@@ -71,8 +71,7 @@ function sortearAmigo() {
             
         }
         
-        // Limpiar listado de amigos
-        asignarTextoElemento('listaAmigos', '');        
+             
     } 
 
     return;
