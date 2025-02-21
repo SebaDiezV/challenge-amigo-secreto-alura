@@ -48,7 +48,7 @@ function sortearAmigo() {
         // Deshabilitar ingreso de amigos en el campo de texto y botón añadir cuando inicia el sorteo
         document.querySelector('input').setAttribute('disabled', 'true');
         document.getElementById('boton-amigo').setAttribute('disabled', 'true');
-        sorteoAleatorio = amigos[numeroAleatorio()];
+        
         
         // Comparar lista de amigos con lista de sorteados
         if (amigos.length == listaSorteados.length){
@@ -56,6 +56,7 @@ function sortearAmigo() {
             reiniciarSorteo();
         } else { 
             
+            sorteoAleatorio = amigos[numeroAleatorio()];
             // Revisar si amigo ya fue sorteado
             while(listaSorteados.includes(sorteoAleatorio)){
                 sorteoAleatorio = amigos[numeroAleatorio()];
